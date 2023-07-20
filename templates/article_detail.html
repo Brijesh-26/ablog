@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+<div>
+    {% block content %}
+
+    <h1> {{ post.title}} </h1>
+    
+    
+        <small> By: {{post.posted_by.first_name}} {{post.posted_by.last_name}}</small> 
+        <br>
+        <small> Posted on: {{post.posted_on}} </small>
+        <hr>
+        {% if post.header_image %}
+        <img src="{{post.header_image.url}}" >
+        {% else %}
+        
+        {% endif %}
+        <br>
+        {{post.desc|slice:":200"|safe }} 
+        <form method= "POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-success">Like</button>
+        </form>
+        <br>
+        <h5>Comments....</h5>
+
+        
+        <hr>
+
+        {% for comment in post.comments.all %}
+            <strong>{{comment.name}}-{{comment.date}}</strong>
+            <p>{{comment.body}} </p>
+        {% endfor %}
+        <hr>
+
+    
+        <a href="{% url 'add_comment' post.pk %}"> add comment</a>
+    
+    {% endblock content %}
+
+    
+
+</div>

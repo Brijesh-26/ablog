@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card bg-light p-5">
+
+    <h3 class="text-dark">Signup</h3>
+
+    <form action="" method="post">
+      {% csrf_token %}
+      <br />
+  
+      <label for="username">Username</label>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control p-2"
+          id="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <label for="pass1">Email</label>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control p-2"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <label for="username">First Name</label>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control p-2"
+          id="firstname"
+          name="firstname"
+          required
+        />
+      </div>
+
+      <label for="username">Last Name</label>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control p-2"
+          id="lastname"
+          name="lastname"
+          required
+        />
+      </div>
+
+      <label for="pass1">Password</label>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control p-2"
+          id="pass1"
+          name="pass1"
+          required
+        />
+      </div>
+      <label for="pass2">Confirm Password</label>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control p-2"
+          id="pass2"
+          name="pass2"
+          required
+        />
+      </div>
+      <br />
+      <button type="submit" class="btn btn-dark">Register</button>
+  
+      <br />
+      Already User? <a href="/authentication/login/">Login</a>
+      <br />
+    </form>
+  
+
+</div>
+
+
+
+
+{% endblock content %}

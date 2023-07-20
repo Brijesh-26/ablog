@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+     </head>
+  <body>
+
+    {% block content %} 
+    
+    {% for post in object_list %}
+
+    <section class="cards-wrapper">
+      <div class="card-grid-space">
+        <div class="num">{{post.title}}</div>
+        <a class="card" href="{% url 'article-detail' post.pk %}" style="--bg-img: url({{post.header_image.url}})">
+          <div>
+            <h1>By {{post.posted_by}}</h1>
+            <p>{{post.desc|truncatechars:100}}</p>
+            <div class="date">{{post.posted_on}}</div>
+            <div class="tags">
+              <div class="tag">HTML</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <!-- https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 -->
+    </section>
+    {% endfor %}
+    
+      {% endblock content %}
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+      
+    </body>
+</html>
