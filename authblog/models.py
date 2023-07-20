@@ -12,8 +12,6 @@ class Profile(models.Model):
     userimage= models.ImageField(null=True, blank=True, upload_to='image/profile')
     address= models.CharField(max_length=100)
     pincode= models.IntegerField()
-    country = CountryField()
-    state = INStateField()
     bio= models.TextField(max_length=1000)
     
     

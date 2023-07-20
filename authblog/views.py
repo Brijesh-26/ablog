@@ -69,15 +69,11 @@ def editProfile(request, user_id):
         phonenumber= request.POST['phoneno']
         address= request.POST['address']
         pincode= request.POST['pincode']
-        country= request.POST['country']
-        state= request.POST['state']
         bio= request.POST['bio']
         
         profile.phonenumber= phonenumber
         profile.address= address
         profile.pincode= pincode
-        profile.country= country
-        profile.state = state
         profile.bio= bio
         profile.save()
         print('saved')
