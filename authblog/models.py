@@ -1,7 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django_countries.fields import CountryField
-from localflavor.in_.models import INStateField
+from django.contrib.auth.models import User 
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
